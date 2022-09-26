@@ -1,41 +1,17 @@
-MAX_CHARS = 256 
-
- 
- 
-def areIsomorphic(string1, string2):
-    m = len(string1)
-    n = len(string2)
- 
+def isIsomorphic(str1, str2):          
+    dict_str1 = {}
+    dict_str2 = {}
     
-    if m != n:
-        return False
- 
-   
-    marked = [False] * MAX_CHARS
- 
-   
-    map = [-1] * MAX_CHARS
- 
-   
-    for i in xrange(n):
- 
-       
-        if map[ord(string1[i])] == -1:
- 
-           
-            if marked[ord(string2[i])] == True:
-                return False
- 
-           
-            marked[ord(string2[i])] = True
- 
+    for i, value in enumerate(str1):
+        dict_str1[value] = dict_str1.get(value, []) + [i]
             
-            map[ord(string1[i])] = string2[i]
- 
-
-        elif map[ord(string1[i])] != string2[i]:
-            return False
- 
-    return True
-print("aab", "xxy")
-print("aab", "xyz")
+    for j, value in enumerate(str2):
+        dict_str2[value] = dict_str2.get(value, []) + [j]
+    
+    if sorted(dict_str1.values()) == sorted(dict_str2.values()):
+        return True
+    else:
+        return False
+s1=str(input("enter a string"))
+s2=str(input("enter a string"))
+print(isIsomorphic(s1,s2))
