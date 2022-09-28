@@ -1,0 +1,17 @@
+nums=[]
+even_sum=0
+odd_sum=0
+n=int(input("enter the length"))
+for i in range(n):
+    value=int(input("enter the value"))
+    nums.append(value)
+sum=0
+for j in range(n):
+    if(nums[j]%2==0):
+        a=nums[j]*nums[j]
+        even_sum=even_sum+a
+    else:
+        b=nums[j]*nums[j]
+        odd_sum=odd_sum+b
+print("sum of even number",even_sum)
+print("sum of odd number",odd_sum)
